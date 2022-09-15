@@ -54,8 +54,6 @@ make init
 ```
 
 3. ブラウザを起動し、http://localhost へアクセスする
-4. 認証情報は下記のファイルを参照  
-   `src/database/seeders/Traits/UserProduction.php`
 
 ### 2回目以降
 1. 右上にあるプルダウンから、docker-composeを選択
