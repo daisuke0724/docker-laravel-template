@@ -7,6 +7,7 @@ laravel-install:
 	docker compose exec app cp -rf /tmp/laravel/. /var/www/html
 	docker compose exec app rm -rf /tmp/laravel
 create-project:
+	mkdir src
 	@make build
 	@make up
 	@make laravel-install
