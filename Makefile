@@ -3,15 +3,22 @@ up:
 build:
 	docker compose build
 laravel-install:
-	docker compose exec app composer create-project --prefer-dist laravel/laravel .
+	docker compose exec app composer create-project --prefer-dist laravel/laravel /tmp/laravel -d /tmp
+	docker compose exec app cp -rf /tmp/laravel/. /var/www/html
+	docker compose exec app rm -rf /tmp/laravel
 create-project:
-	mkdir -p src
 	@make build
 	@make up
 	@make laravel-install
+	docker compose exec app php artisan route:clear
+	docker compose exec app php artisan cache:clear
+	docker compose exec app php artisan config:clear
+	docker compose exec app php artisan view:clear
 	docker compose exec app php artisan key:generate
 	docker compose exec app php artisan storage:link
 	docker compose exec app chmod -R 777 storage bootstrap/cache
+	docker compose exec app npm install
+	docker compose exec app npm run build
 	@make fresh
 install-recommend-packages:
 	docker compose exec app composer require doctrine/dbal

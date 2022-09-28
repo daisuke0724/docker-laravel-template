@@ -1,8 +1,7 @@
 version: "3.9"
 volumes:
-# TODO: make create-projectsの時にエラーになるので回避方法を調査
-#  vendor-volume:
-#  node_modules-volume:
+  vendor-volume:
+  node_modules-volume:
   psysh-volume:
   db-volume:
 services:
@@ -15,13 +14,12 @@ services:
       - type: bind
         source: ./src
         target: /var/www/html
-# TODO: make create-projectsの時にエラーになるので回避方法を調査
-#      - type: volume
-#        source: vendor-volume
-#        target: /var/www/html/vendor
-#      - type: volume
-#        source: node_modules-volume
-#        target: /var/www/html/node_modules
+      - type: volume
+        source: vendor-volume
+        target: /var/www/html/vendor
+      - type: volume
+        source: node_modules-volume
+        target: /var/www/html/node_modules
       - type: volume
         source: psysh-volume
         target: /root/.config/psysh
