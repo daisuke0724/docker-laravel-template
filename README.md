@@ -35,8 +35,7 @@ brew install git make
 1. 下記のリンクから取得  
    [PhpStorm のダウンロード](https://www.jetbrains.com/ja-jp/phpstorm/download/#section=mac)
 
-### 共通
-
+### 初回起動時
 #### GitHub から Clone する
 1. [Get from VCS] ボタンを選択
 2. GitHub タブを選択
@@ -46,7 +45,7 @@ brew install git make
 6. Shimaosを選択
 7. Cloneを選択
 
-#### 初回起動時
+#### 初回設定作業
 1. PHPStrom の下部にある Terminalタブを起動
 2. 下記のコマンドを実行する
 ```
